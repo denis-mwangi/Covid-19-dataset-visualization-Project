@@ -220,3 +220,11 @@ fig = px.choropleth(
 
 fig.update_layout(geo=dict(showframe=False, showcoastlines=False))
 fig.show()
+
+import seaborn as sns
+
+corr = df[["total_cases", "total_deaths", "total_vaccinations", "new_cases", "new_deaths"]].corr()
+plt.figure(figsize=(8, 6))
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()
